@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сегментация мультимедиа</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Сегментация мультимедиа</h1>
+        <div class="input-group">
+            <label for="input-type">Тип входных данных</label>
+            <select id="input-type">
+                <option value="" disabled selected>Выберите тип данных для сегментации</option>
+                <option value="folder">Папка</option>
+                <option value="image">Изображение</option>
+                <option value="video">Видео</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="output-type">Тип выходных данных</label>
+            <select id="output-type">
+                <option value="" disabled selected>Выберите способ сохранения</option>
+                <option value="folder">Папка</option>
+                <option value="video">Видео</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="visualization-type">Способ обработки данных</label>
+            <select id="visualization-type">
+                <option value="" disabled selected>Выберите тип обработки</option>
+                <option value="vanilla">Ванильный SAM</option>
+                <option value="grayscale">В серых тонах</option>
+                <option value="masks">Только семантические маски</option>
+                <option value="overlay">Изображение с наложенными масками</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="object-path">Путь до сегментируемого объекта</label>
+            <div class="path-input">
+                <input type="text" id="object-path" placeholder="Выберите объект">
+                <button id="browse-button"><i class="fas fa-folder-open"></i> Обзор</button>
+                <button id="clear-button"><i class="fas fa-times"></i> Очистить</button>
+            </div>
+        </div>
+        <button id="start-button" disabled><i class="fas fa-play"></i> Сегментировать объекты</button>
+        <div id="progress-bar" class="hidden">
+            <div class="progress"></div>
+        </div>
+        <div class="display-section">
+            <div class="original-object">
+                <h2>Исходный объект</h2>
+                <div id="original-display"></div>
+            </div>
+            <div class="result-object">
+                <h2>Результат</h2>
+                <div id="result-display"></div>
+                <div id="save-location"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
